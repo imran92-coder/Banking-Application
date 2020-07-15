@@ -59,7 +59,10 @@ public class CustomerController {
 	public ResponseEntity<String> phoneNumberBasedTransfer(@PathVariable Long fromPhoneNumber,@PathVariable Long toPhoneNumber,@PathVariable BigDecimal amount) {
 		AccountReqDto accountReqDto=new AccountReqDto();
 		Long fromAccountNumber=customerService.getAccountbyPhone(fromPhoneNumber);
-				Long toAccountNumber=customerService.getAccountbyPhone(toPhoneNumber);
+		Long toAccountNumber=customerService.getAccountbyPhone(toPhoneNumber);
+		if(fromAccountNumber==0L||toAccountNumber==0L)
+			return new ResponseEntity<>("no account present for the phone number", HttpStatus.OK);
+				
 				accountReqDto.setFromAccountNumber(fromAccountNumber);
 				accountReqDto.setToAccountNumber(toAccountNumber);
 				accountReqDto.setAmount(amount);

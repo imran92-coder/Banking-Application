@@ -102,7 +102,9 @@ public class CustomerService {
 	
 	public Long getAccountbyPhone(Long phone) {
 		Customer customer= customerRepository.findByPhone(phone);
+		if(customer!=null)
 		return accountRepository.findByCustomerId(customer.getCustomerId()).getAccountNumber();
+	return 0L;
 	}
 	
 	public Customer getCustomerbyPhone(Long phone) {
