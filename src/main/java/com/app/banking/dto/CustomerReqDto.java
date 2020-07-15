@@ -16,7 +16,7 @@ private int customerId;
 	
 	private int toAccountId;
 	
-	private Integer phone;
+	private Long phone;
 	
 	private Integer aadhar;
 
@@ -60,11 +60,11 @@ private int customerId;
 		this.toAccountId = toAccountId;
 	}
 
-	public Integer getPhone() {
+	public Long getPhone() {
 		return phone;
 	}
 
-	public void setPhone(Integer phone) {
+	public void setPhone(Long phone) {
 		this.phone = phone;
 	}
 

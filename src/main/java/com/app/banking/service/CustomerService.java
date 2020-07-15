@@ -97,6 +97,15 @@ public class CustomerService {
 		List<Transaction> transactions = transactionRepository.findTop5ByFromAccountOrToAccountOrderByTransactionDateTimeDesc(id,id);
 		return transactions.stream().map(s -> getDtoFromEntity(s)).collect(Collectors.toList());
 	}
+	
+	public Long getAccountbyPhone(Long phone) {
+		Customer customer= customerRepository.findByPhone(phone);
+		return accountRepository.findByCustomerId(customer.getCustomerId()).getAccountNumber();
+	}
+	
+	public Customer getCustomerbyPhone(Long phone) {
+		return customerRepository.findByPhone(phone);
+	}
 
 	private TransactionDto getDtoFromEntity(Transaction transaction) {
 		TransactionDto transactionDto = new TransactionDto();
