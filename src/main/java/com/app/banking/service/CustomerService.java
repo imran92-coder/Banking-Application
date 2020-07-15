@@ -44,6 +44,8 @@ public class CustomerService {
 		Customer customer = new Customer();
 		customer.setCustomerName(customerReqDto.getCustomerName());
 		customer.setPassword(customerReqDto.getPassword());
+		customer.setPhone(customerReqDto.getPhone());
+		customer.setAadhar(customerReqDto.getAadhar());
 		customerRepository.save(customer);
 		Account account = new Account();
 

@@ -55,7 +55,7 @@ public class CustomerController {
 
 	}
 	
-	@PostMapping("/phoneNumberBasedTransfer")
+	@PostMapping("/phoneNumberBasedTransfer/{fromPhoneNumber}/{toPhoneNumber}/{amount}")
 	public ResponseEntity<String> phoneNumberBasedTransfer(@PathVariable Long fromPhoneNumber,@PathVariable Long toPhoneNumber,@PathVariable BigDecimal amount) {
 		AccountReqDto accountReqDto=new AccountReqDto();
 		Long fromAccountNumber=customerService.getAccountbyPhone(fromPhoneNumber);
@@ -68,7 +68,7 @@ public class CustomerController {
 
 	}
 	
-	@GetMapping("/getCustomer/{}")
+	@GetMapping("/getCustomer/{phone}")
 	public Customer getCustomerId(@PathVariable Long phone) {
 		return customerService.getCustomerbyPhone(phone);
 		
